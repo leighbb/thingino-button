@@ -53,17 +53,21 @@
 
    You can run the program directly or with optional flags:
    ```sh
-   ./thingino-button [-s] [-d] [input_device]
+   ./thingino-button [-s] [-d] [-c <config_file>] [<input_device>]
    ```
 
    - `-s`: Run in silent mode, logging to syslog.
    - `-d`: Run as a daemon, logging to syslog.
-   - `input_device`: Optional input device path, overrides the config file.
+   - `-c <config_file>`: Optional config file path, overrides the default.
+   - `<input_device>`: Optional input device path, overrides the config file.
 
    Example:
    ```sh
    ./thingino-button -s /dev/input/event1
    ```
+
+   NB: If you run the program as a daemon and specify a config file, it should
+   be an absolute path, because the program will chdir to the root directory.
 
 ## Configuration File Format
 
